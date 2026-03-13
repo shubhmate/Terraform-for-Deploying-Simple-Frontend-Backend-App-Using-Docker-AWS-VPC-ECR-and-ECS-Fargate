@@ -23,31 +23,58 @@ This project automatically deploys two web applications (Flask backend and Expre
 - **Service Connect**: Phone directory so services can find each other
 - **CloudWatch**: Security cameras recording everything that happens
 
-## 📸 Project Screenshots
+## 📸 Architecture & Screenshots
 
-### Architecture Diagram
-![Architecture Diagram](screenshots/architecture.png)
-*Add your architecture diagram here*
+### 📐 Architecture Diagrams
 
-### AWS Console - ECS Cluster
+**Interactive Diagrams (Mermaid)**: See [ARCHITECTURE.md](ARCHITECTURE.md)
+- System Architecture
+- Sequence Diagrams
+- Network Security Flow
+- Data Flow Diagram
+- Cost Breakdown
+- Deployment Flow
+
+**Simple ASCII Diagrams**: See [ARCHITECTURE_ASCII.md](ARCHITECTURE_ASCII.md)
+- Quick reference diagrams
+- Terminal-friendly format
+- Request flow visualization
+
+### 📷 Project Screenshots
+
+> **Note**: Add your actual screenshots to a `screenshots/` folder
+
+#### AWS Console - ECS Cluster
 ![ECS Cluster](screenshots/ecs-cluster.png)
-*Screenshot of running ECS cluster*
+*Screenshot of running ECS cluster with both services*
 
-### AWS Console - Load Balancer
+#### AWS Console - Load Balancer
 ![Load Balancer](screenshots/alb.png)
-*Screenshot of Application Load Balancer*
+*Screenshot of Application Load Balancer configuration*
 
-### Flask Application Running
+#### Target Groups Health
+![Target Groups](screenshots/target-groups.png)
+*Screenshot showing healthy targets*
+
+#### Flask Application Running
 ![Flask App](screenshots/flask-app.png)
-*Screenshot of Flask backend response*
+*Screenshot of Flask backend API response*
 
-### Express Application Running
+#### Express Application Running
 ![Express App](screenshots/express-app.png)
-*Screenshot of Express frontend*
+*Screenshot of Express frontend interface*
 
-### CloudWatch Logs
+#### CloudWatch Logs
 ![CloudWatch Logs](screenshots/cloudwatch-logs.png)
-*Screenshot of container logs*
+*Screenshot of container logs with KMS encryption*
+
+#### ECR Repositories
+![ECR](screenshots/ecr-repos.png)
+*Screenshot of Docker images in ECR*
+
+#### VPC Network Diagram
+![VPC](screenshots/vpc-diagram.png)
+*Screenshot of VPC resource map from AWS Console*
 
 ---
 
