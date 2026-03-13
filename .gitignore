@@ -1,0 +1,56 @@
+# Local .terraform directories
+**/.terraform/*
+
+# Terraform files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files, which are likely to contain sensitive data, such as password, private keys, and other secrets
+*.tfvars
+*.tfvars.json
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+
+# Override files are usually used to override resources defined in the main .tf files. They are often used for local development and testing,
+# and may contain sensitive data or configurations that should not be committed to version control.
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files containing credentials and other sensitive information
+.terraformrc
+terraform.rc
+
+# AWS credentials
+*.pem
+*.key
+.aws/
+
+# Environment variables
+.env
+.env.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Backup files
+*.backup
+*.bak
+
+
+
+
+
+
+
