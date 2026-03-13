@@ -4,6 +4,12 @@ resource "aws_lb" "main" {
   load_balancer_type = "application"
   subnets            = aws_subnet.public[*].id
   security_groups    = [aws_security_group.lb_sg.id]
+  
+  # Security: Drop invalid HTTP headers
+  drop_invalid_header_fields = true
+  
+  # Enable deletion protection for production
+  # enable_deletion_protection = true
 }
 
 # Create Target Groups for Flask and Express services with appropriate ports and health check settings to monitor the health of the services and ensure traffic is only sent to healthy instances 
@@ -13,6 +19,15 @@ resource "aws_lb_target_group" "flask" {
   protocol    = "HTTP"
   vpc_id      = aws_vpc.main.id
   target_type = "ip"
+  
+  health_check {
+    path                = "/"
+    interval            = 30
+    timeout             = 10
+    healthy_threshold   = 2
+    unhealthy_threshold = 3
+    matcher             = "200-299"
+  }
 }
 
 resource "aws_lb_target_group" "express" {
@@ -21,7 +36,8 @@ resource "aws_lb_target_group" "express" {
   protocol    = "HTTP"
   vpc_id      = aws_vpc.main.id
   target_type = "ip"
-    health_check {
+  
+  health_check {
     path                = "/" 
     interval            = 30
     timeout             = 10

@@ -18,3 +18,8 @@ output "flask_ecr_repo_url" {
 output "express_ecr_repo_url" {
   value = aws_ecr_repository.express_frontend.repository_url
 }
+
+output "kms_key_id" {
+  value       = aws_kms_key.cloudwatch_logs.id
+  description = "KMS key ID for CloudWatch logs encryption"
+}

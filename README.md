@@ -74,8 +74,8 @@ This project automatically deploys two web applications (Flask backend and Expre
 5. **Your Applications**: Flask and Express Docker images ready
 
 ### AWS Setup Required:
-- **S3 Bucket**: `s3-for-flask-and-express-on-a-single-ec2-instance` (for storing Terraform state)
-- **DynamoDB Table**: `terraform-state-lock` (prevents multiple people from changing infrastructure simultaneously)
+- **S3 Bucket**: `<your-s3-bucket-name>` (for storing Terraform state)
+- **DynamoDB Table**: `<your-dynamodb-table-name>` (prevents multiple people from changing infrastructure simultaneously)
 
 ## 📁 Project Structure
 
@@ -146,11 +146,11 @@ aws configure
 ### Step 2: Create S3 Bucket and DynamoDB Table
 ```bash
 # Create S3 bucket for Terraform state
-aws s3 mb s3://s3-for-flask-and-express-on-a-single-ec2-instance --region us-east-1
+aws s3 mb s3://<your-s3-bucket-name> --region us-east-1
 
 # Create DynamoDB table for state locking
 aws dynamodb create-table \
-  --table-name terraform-state-lock \
+  --table-name <your-dynamodb-table-name> \
   --attribute-definitions AttributeName=LockID,AttributeType=S \
   --key-schema AttributeName=LockID,KeyType=HASH \
   --billing-mode PAY_PER_REQUEST \
@@ -228,9 +228,9 @@ terraform apply
 
 After successful deployment, Terraform will output:
 ```
-alb_dns_name = "app-lb-1234567890.us-east-1.elb.amazonaws.com"
-flask_url = "http://app-lb-1234567890.us-east-1.elb.amazonaws.com:5000"
-express_url = "http://app-lb-1234567890.us-east-1.elb.amazonaws.com:80"
+alb_dns_name = "<your-alb-dns-name>"
+flask_url = "http://<your-alb-dns-name>:5000"
+express_url = "http://<your-alb-dns-name>:80"
 ```
 
 **Test your applications:**
@@ -284,11 +284,14 @@ Express → Service Connect → Flask (internal communication)
 ## 🔒 Security Features
 
 - ✅ Load Balancer only accepts HTTP traffic on ports 80 and 5000
+- ✅ ALB drops invalid HTTP headers for security
 - ✅ ECS containers only accept traffic from Load Balancer
 - ✅ Services can communicate with each other securely
 - ✅ Outbound internet access for pulling Docker images
 - ✅ No SSH access needed (serverless!)
-- ✅ Logs stored securely in CloudWatch
+- ✅ Logs stored securely in CloudWatch with KMS encryption
+- ✅ KMS key rotation enabled for log encryption
+- ⚠️ HTTP only (no HTTPS) - See [HTTPS_SETUP.md](HTTPS_SETUP.md) for production configuration
 
 ## 🧹 Cleanup (Destroy Infrastructure)
 
@@ -318,7 +321,7 @@ terraform destroy
 ### Issue: Terraform init fails
 **Solution**: Check AWS credentials and S3 bucket exists
 ```bash
-aws s3 ls s3://s3-for-flask-and-express-on-a-single-ec2-instance
+aws s3 ls s3://<your-s3-bucket-name>
 ```
 
 ### Issue: Docker push fails
