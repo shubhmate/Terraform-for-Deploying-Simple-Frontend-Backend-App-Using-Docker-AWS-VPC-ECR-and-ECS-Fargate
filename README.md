@@ -45,35 +45,66 @@ This project automatically deploys two web applications (Flask backend and Expre
 > **Note**: Add your actual screenshots to a `screenshots/` folder
 
 #### AWS Console - ECS Cluster
-![ECS Cluster](screenshots/ecs-cluster.png)
+<p align="center">
+<img width="1605" height="628" alt="image" src="https://github.com/user-attachments/assets/e07d1590-01af-4372-afb9-bac14e2a5189" />
+</p>
+
 *Screenshot of running ECS cluster with both services*
 
 #### AWS Console - Load Balancer
-![Load Balancer](screenshots/alb.png)
+<p align="center">
+<img width="1625" height="444" alt="image" src="https://github.com/user-attachments/assets/753d1194-e140-4330-82a9-93563ece6358" />
+</p>
+
 *Screenshot of Application Load Balancer configuration*
 
 #### Target Groups Health
-![Target Groups](screenshots/target-groups.png)
+<p align="center">
+<img width="1642" height="265" alt="image" src="https://github.com/user-attachments/assets/79bd7a2a-9cfb-4b42-bb30-8b0274a98d08" />
+<img width="1638" height="292" alt="image" src="https://github.com/user-attachments/assets/3821b55f-1374-4303-a740-ca690d8cc60b" />
+</p>
+
 *Screenshot showing healthy targets*
 
 #### Flask Application Running
-![Flask App](screenshots/flask-app.png)
+<p align="center">
+<img width="288" height="142" alt="image" src="https://github.com/user-attachments/assets/8f4f3924-71bc-4a62-8f0e-85f5add09b62" />
+</p>
+<p align="center">
+<img width="278" height="66" alt="image" src="https://github.com/user-attachments/assets/90de41ed-3473-46ca-a346-0d6022c78e51" />
+</p>
+
 *Screenshot of Flask backend API response*
 
 #### Express Application Running
-![Express App](screenshots/express-app.png)
+<p align="center">
+<img width="303" height="416" alt="image" src="https://github.com/user-attachments/assets/bfae303b-a3e9-4ead-a35b-b89df7162f25" />
+</p>
+
 *Screenshot of Express frontend interface*
 
 #### CloudWatch Logs
-![CloudWatch Logs](screenshots/cloudwatch-logs.png)
+<p align="center">
+<img width="575" height="546" alt="image" src="https://github.com/user-attachments/assets/9587672a-c455-4b5d-bb86-675086b9c5f9" />
+</p>
+<p align="center">
+<img width="475" height="351" alt="image" src="https://github.com/user-attachments/assets/116aae47-8784-45a7-91c7-2efe0fad8381" />
+</p>
+
 *Screenshot of container logs with KMS encryption*
 
 #### ECR Repositories
-![ECR](screenshots/ecr-repos.png)
+<p align="center">
+<img width="376" height="279" alt="image" src="https://github.com/user-attachments/assets/6da0164c-6eaf-46a2-ad7d-bd2fbf005216" />
+</p>
+
 *Screenshot of Docker images in ECR*
 
 #### VPC Network Diagram
-![VPC](screenshots/vpc-diagram.png)
+<p align="center">
+<img width="1609" height="339" alt="image" src="https://github.com/user-attachments/assets/e3e84d13-1222-420d-8573-19495c4c245c" />
+</p>
+
 *Screenshot of VPC resource map from AWS Console*
 
 ---
